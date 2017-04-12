@@ -16,10 +16,13 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bim.neem.AboutUs.AboutUsActivity;
 import com.example.bim.neem.Calendar.CalendarActivity;
 import com.example.bim.neem.Products.ProductsActivity;
+import com.example.bim.neem.Profile.ProfileActivity;
 import com.example.bim.neem.R;
 import com.example.bim.neem.Stories.StoriesActivity;
+import com.example.bim.neem.Video.VideoActivity;
 import com.example.bim.neem.adapters.DrawerAdapter;
 import com.example.bim.neem.Models.DrawerItem;
 
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActionBarDrawerToggle mDrawerToggle;
 
-    RelativeLayout rl_products;
+    RelativeLayout rl_products,rl_videos;
     ImageView calendar;
 
     @Override
@@ -45,9 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         rl_products = (RelativeLayout) findViewById(R.id.rl_products);
+        rl_videos = (RelativeLayout) findViewById(R.id.rl_videos);
         calendar = (ImageView) findViewById(R.id.calendar);
         calendar.setOnClickListener(this);
         rl_products.setOnClickListener(this);
+        rl_videos.setOnClickListener(this);
 
     //    setSupportActionBar(mToolbar);
 
@@ -81,6 +86,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DrawerItem item7 = new DrawerItem(); //divider
         item7.setTitle("Divider");
         mDrawerItemList.add(item7);
+
+        DrawerItem item8 = new DrawerItem();
+        item8.setTitle("Videos");
+        mDrawerItemList.add(item8);
+
+        DrawerItem item9 = new DrawerItem(); //divider
+        item9.setTitle("Divider");
+        mDrawerItemList.add(item9);
+
+        DrawerItem item10= new DrawerItem();
+        item10.setTitle("About Us");
+        mDrawerItemList.add(item10);
+
+        DrawerItem item11 = new DrawerItem(); //divider
+        item11.setTitle("Divider");
+        mDrawerItemList.add(item11);
+
+        DrawerItem item12= new DrawerItem();
+        item12.setTitle("My Profile");
+        mDrawerItemList.add(item12);
+
+        DrawerItem item13 = new DrawerItem(); //divider
+        item13.setTitle("Divider");
+        mDrawerItemList.add(item13);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.drawerRecyclerView);
 
@@ -121,6 +150,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent i=new Intent(MainActivity.this,StoriesActivity.class);
                     startActivity(i);
                 }
+                if(position==8)
+                {
+                    Intent i=new Intent(MainActivity.this,VideoActivity.class);
+                    startActivity(i);
+                }
+                if(position==10)
+                {
+                    Intent i=new Intent(MainActivity.this,AboutUsActivity.class);
+                    startActivity(i);
+                }
+                if(position==12)
+                {
+                    Intent i=new Intent(MainActivity.this,ProfileActivity.class);
+                    startActivity(i);
+                }
+
             }
         });
 
@@ -164,7 +209,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.calendar:
-                 i=new Intent(this,CalendarActivity.class);
+                i=new Intent(this,CalendarActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.rl_videos:
+                i=new Intent(this,VideoActivity.class);
                 startActivity(i);
                 break;
         }
