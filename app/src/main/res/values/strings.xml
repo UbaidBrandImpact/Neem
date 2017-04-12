@@ -7,4 +7,9 @@
     <string name="close">Close</string>
     <string name="service">http://bimtesting.net/posfront/api/</string>
 
+    <!--MY PROFILE ACTIVITY-->
+    <string name="title_username">Username</string>
+    <string name="title_password">Password</string>
+
+
 </resources>
