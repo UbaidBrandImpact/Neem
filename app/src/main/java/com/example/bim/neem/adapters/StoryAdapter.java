@@ -12,7 +12,7 @@ import com.example.bim.neem.R;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyViewHolder> {
+public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder> {
 
     private List<Product> List;
 
@@ -22,19 +22,18 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
-            ingredients = (TextView) view.findViewById(R.id.tv_ingredients);
             image = (ImageView) view.findViewById(R.id.iv);
         }
     }
 
-    public ProductsAdapter(List<Product> list) {
+    public StoryAdapter(List<Product> list) {
         this.List = list;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.product_list_row, parent, false);
+                .inflate(R.layout.story_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -43,7 +42,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Product product = List.get(position);
         holder.title.setText(product.getTitle());
-        holder.ingredients.setText(product.getIngredients());
     }
 
     @Override

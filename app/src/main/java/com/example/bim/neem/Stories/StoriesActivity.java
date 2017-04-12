@@ -1,4 +1,4 @@
-package com.example.bim.neem.Products;
+package com.example.bim.neem.Stories;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,30 +16,33 @@ import com.example.bim.neem.Models.Product;
 import com.example.bim.neem.adapters.ProductsAdapter;
 import com.example.bim.neem.R;
 import com.example.bim.neem.Utils.RecyclerTouchListener;
+import com.example.bim.neem.adapters.StoryAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsActivity extends AppCompatActivity {
+public class StoriesActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
 
     private List<Product> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private ProductsAdapter mAdapter;
+    private StoryAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products);
+        setContentView(R.layout.activity_stories);
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new ProductsAdapter(movieList);
+        mAdapter = new StoryAdapter(movieList);
 
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-       // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+      //  RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+        LinearLayoutManager layoutManager= new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
@@ -47,7 +50,7 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Product movie = movieList.get(position);
-                Intent i=new Intent(ProductsActivity.this,ProductDetailActivity.class);
+                Intent i=new Intent(StoriesActivity.this,StoryDetailActivity.class);
                 startActivity(i);
             }
 

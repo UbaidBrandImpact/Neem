@@ -16,8 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bim.neem.Calendar.CalendarActivity;
 import com.example.bim.neem.Products.ProductsActivity;
 import com.example.bim.neem.R;
+import com.example.bim.neem.Stories.StoriesActivity;
 import com.example.bim.neem.adapters.DrawerAdapter;
 import com.example.bim.neem.Models.DrawerItem;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle mDrawerToggle;
 
     RelativeLayout rl_products;
+    ImageView calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         rl_products = (RelativeLayout) findViewById(R.id.rl_products);
+        calendar = (ImageView) findViewById(R.id.calendar);
+        calendar.setOnClickListener(this);
         rl_products.setOnClickListener(this);
 
     //    setSupportActionBar(mToolbar);
@@ -91,17 +96,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 //TODO Add some action here
-                //Executed when drawer closes
 
-                Toast.makeText(MainActivity.this, "Closed", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 //TODO Add some action here
-                //executes when drawer open
-                Toast.makeText(MainActivity.this, "Opened", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -113,7 +114,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.setOnItemClickLister(new DrawerAdapter.OnItemSelecteListener() {
             @Override
             public void onItemSelected(View v, int position) {
-                Toast.makeText(MainActivity.this, "You clicked at position: "+ position, Toast.LENGTH_SHORT).show();
+
+
+                if(position==6)
+                {
+                    Intent i=new Intent(MainActivity.this,StoriesActivity.class);
+                    startActivity(i);
+                }
             }
         });
 
@@ -154,6 +161,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i=new Intent(this,ProductsActivity.class);
                 startActivity(i);
 
+                break;
+
+            case R.id.calendar:
+                 i=new Intent(this,CalendarActivity.class);
+                startActivity(i);
                 break;
         }
     }
