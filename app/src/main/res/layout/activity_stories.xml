@@ -1,0 +1,59 @@
+<RelativeLayout
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/DarkGreen"
+    android:layout_height="match_parent"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:background="@color/ToolbarColor">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Stories"/>
+
+    </android.support.v7.widget.Toolbar>
+    <!-- Editext for Search -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:layout_below="@+id/appBar"
+        android:id="@+id/tv"
+        android:textColor="#fff"
+        android:background="@color/DarkGreen"
+        android:text="Stories"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColorHint="@android:color/white"
+        android:maxEms="10"
+        android:padding="15dp"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/divider"
+        android:layout_below="@+id/tv"
+        android:background="@color/ToolbarColor"
+        ></View>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/divider"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+</RelativeLayout>
