@@ -1,0 +1,140 @@
+<RelativeLayout
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/DarkGreen"
+    android:layout_height="match_parent"
+    >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:background="@color/ToolbarColor">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Profile"/>
+
+    </android.support.v7.widget.Toolbar>
+    <!-- Editext for Search -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
+        android:background="@color/colorAccent"
+        android:id="@+id/ll"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:layout_below="@+id/appBar"
+            android:id="@+id/tv"
+            android:visibility="visible"
+            android:textColor="#fff"
+            android:background="@color/DarkGreen"
+            android:text="Profile"
+            android:gravity="center"
+            android:textColorHint="@android:color/white"
+            android:maxEms="10"
+            android:padding="15dp"
+
+            />
+        <com.example.bim.neem.Utils.MLRoundedImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:id="@+id/iv"
+            android:src="@drawable/products"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:layout_below="@+id/appBar"
+            android:textStyle="bold"
+            android:visibility="visible"
+            android:textSize="18sp"
+            android:textColor="@color/DarkGreen"
+            android:text="JOHN DOE"
+            android:gravity="center"
+            android:maxEms="10"
+            android:padding="10dp"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:textColor="#fff"
+            android:text="@string/title_username"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#fff"></View>
+        <EditText
+            android:layout_width="match_parent"
+            android:text="John..."
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:textColor="#fff"
+            android:text="@string/title_password"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#fff"></View>
+        <EditText
+            android:layout_width="match_parent"
+            android:text="John..."
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:inputType="textPassword"
+            android:layout_marginLeft="15dp"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_height="45dp"
+    android:layout_marginBottom="10dp"
+    android:src="@drawable/edit_profile_button"/>
+</RelativeLayout>
