@@ -24,7 +24,11 @@
         <activity android:name=".Stories.StoriesActivity"></activity>
         <activity android:name=".Stories.StoryDetailActivity"></activity>
         <activity android:name=".Calendar.CalendarActivity"></activity>
+        <activity android:name=".Video.VideoActivity"></activity>
+        <activity android:name=".Video.VideoDetailActivity"></activity>
 
+        <activity android:name=".AboutUs.AboutUsActivity"></activity>
+        <activity android:name=".Profile.ProfileActivity"></activity>
 
     </application>
 
