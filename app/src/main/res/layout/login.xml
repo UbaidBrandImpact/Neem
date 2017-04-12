@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/DarkGreen"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+   >
+
+
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="150dp"
+    android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="15dp"
+            android:text="Enter Username"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint=""
+            android:gravity="center"
+            android:id="@+id/edt_email"
+            android:background="@drawable/round_rectangle"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:inputType="text"
+           />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="15dp"
+            android:text="Enter Password"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:id="@+id/edt_password"
+            android:background="@drawable/round_rectangle"
+            android:inputType="textPassword"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textColorHint="#fff"
+           />
+
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_margin="18dp"
+            android:gravity="center"
+            android:background="@drawable/sign_in"
+            android:id="@+id/btn_signin"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info"
+            android:layout_gravity="center"
+            android:textColor="#fff"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

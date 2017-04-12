@@ -1,8 +1,6 @@
-package com.example.bim.neem;
+package com.example.bim.neem.Home;
 
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.view.GravityCompat;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,19 +12,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.bim.neem.Products.ProductsActivity;
+import com.example.bim.neem.R;
 import com.example.bim.neem.adapters.DrawerAdapter;
-import com.example.bim.neem.models.DrawerItem;
+import com.example.bim.neem.Models.DrawerItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar mToolbar;
-    private RecyclerView.LayoutManager layoutManager;
-    private DrawerAdapter mDrawerAdapter;
     private RecyclerView mRecyclerView;
     private ArrayList<DrawerItem> mDrawerItemList;
 
@@ -34,12 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
 
+    RelativeLayout rl_products;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mToolbar = (Toolbar)findViewById(R.id.appBar);
+        rl_products = (RelativeLayout) findViewById(R.id.rl_products);
+        rl_products.setOnClickListener(this);
 
     //    setSupportActionBar(mToolbar);
 
@@ -140,5 +143,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId())
+        {
+            case R.id.rl_products:
+                Intent i=new Intent(this,ProductsActivity.class);
+                startActivity(i);
+
+                break;
+        }
     }
 }
