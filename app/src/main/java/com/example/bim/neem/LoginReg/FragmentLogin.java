@@ -146,44 +146,14 @@ public class FragmentLogin extends Fragment implements  View.OnClickListener , I
                     User.getInstance().setGender(result.getJSONObject("data").getString("gender"));
                     User.getInstance().setAge(result.getJSONObject("data").getString("age"));
 
-
-
-
                     Intent i = new Intent(myContext, MainActivity.class);
                     myContext.startActivity(i);
-                   /* new android.support.v7.app.AlertDialog.Builder(myContext)
-                            .setTitle(getString(R.string.app_name))
-                            .setMessage(result.getString("message"))
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // continue with delete
-                                    try {
-
-                                        User.getInstance().setId(result.getJSONObject("data").getString("id"));
-                                        User.getInstance().setEmail(result.getJSONObject("data").getString("email"));
-                                        User.getInstance().setMobile(result.getJSONObject("data").getString("mobile"));
-                                        User.getInstance().setGender(result.getJSONObject("data").getString("gender"));
-                                        User.getInstance().setAge(result.getJSONObject("data").getString("age"));
-
-                                        dialog.dismiss();
-                                        //  goto login screen
-
-
-                                        Intent i = new Intent(myContext, MainActivity.class);
-                                        myContext.startActivity(i);
-                                    }catch (Exception ex){
-                                        ex.printStackTrace();
-                                    }
-                                }
-                            })
-
-                            .show();*/
                 }
                 else
                 {
                     new android.support.v7.app.AlertDialog.Builder(myContext)
                             .setTitle(getString(R.string.error_alert_box))
-                            .setMessage(result.getString("message"))
+                            .setMessage(getString(R.string.invalid_userpass))
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     // continue with delete

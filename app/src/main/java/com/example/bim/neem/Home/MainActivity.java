@@ -13,26 +13,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.bim.neem.AboutUs.AboutUsActivity;
 import com.example.bim.neem.CSR.CSRComingSoon;
-import com.example.bim.neem.Calendar.CalendarActivity;
 import com.example.bim.neem.Calendar.CalendarComingSoon;
 import com.example.bim.neem.Category.CategoryActivity;
 import com.example.bim.neem.ContactUs.ContactusActivity;
 import com.example.bim.neem.Gallery.GalleryActivity;
+import com.example.bim.neem.LoginReg.LoginRegActivity;
 import com.example.bim.neem.LoyaltyProgram.LoyaltyProgram;
 import com.example.bim.neem.Products.ProductsActivity;
-import com.example.bim.neem.Profile.ProfileActivity;
+import com.example.bim.neem.Settings.SettingsActivity;
 import com.example.bim.neem.R;
-import com.example.bim.neem.Stories.StoriesActivity;
 import com.example.bim.neem.Stories.StoriesComingSoon;
 import com.example.bim.neem.Video.VideoActivity;
 import com.example.bim.neem.adapters.DrawerAdapter;
 import com.example.bim.neem.Models.DrawerItem;
-import com.example.bim.neem.adapters.GalleryListAdapter;
 
 import java.util.ArrayList;
 
@@ -117,13 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         item12.setTitle("Divider");
         mDrawerItemList.add(item12);
 
-        DrawerItem item13 = new DrawerItem();
-        item13.setTitle(getString(R.string.videos_menu));
-        mDrawerItemList.add(item13);
-
-        DrawerItem item14= new DrawerItem();
-        item14.setTitle("Divider");
-        mDrawerItemList.add(item14);
 
         DrawerItem item15 = new DrawerItem();
         item15.setTitle(getString(R.string.csr_menu));
@@ -133,13 +123,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         item16.setTitle("Divider");
         mDrawerItemList.add(item16);
 
-        DrawerItem item17 = new DrawerItem();
-        item17.setTitle(getString(R.string.loyalty_menu));
-        mDrawerItemList.add(item17);
-
-        DrawerItem item18= new DrawerItem();
-        item18.setTitle("Divider");
-        mDrawerItemList.add(item18);
 
         DrawerItem item19 = new DrawerItem();
         item19.setTitle(getString(R.string.contact_menu));
@@ -152,6 +135,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DrawerItem item21 = new DrawerItem();
         item21.setTitle(getString(R.string.settings_menu));
         mDrawerItemList.add(item21);
+
+
+        DrawerItem item18= new DrawerItem();
+        item18.setTitle("Divider");
+        mDrawerItemList.add(item18);
+
+        DrawerItem item17 = new DrawerItem();
+        item17.setTitle(getString(R.string.logout));
+        mDrawerItemList.add(item17);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.drawerRecyclerView);
 
@@ -207,17 +199,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent i=new Intent(MainActivity.this,StoriesComingSoon.class);
                     startActivity(i);
                 }
+
+
                 else if(position==13)
-                {
-                    Intent i=new Intent(MainActivity.this,VideoActivity.class);
-                    startActivity(i);
-                }
-                else if(position==17)
-                {
-                    Intent i=new Intent(MainActivity.this,LoyaltyProgram.class);
-                    startActivity(i);
-                }
-                else if(position==15)
                 {
                     Intent i=new Intent(MainActivity.this,CSRComingSoon.class);
                     startActivity(i);
@@ -232,14 +216,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Intent i=new Intent(MainActivity.this,GalleryActivity.class);
                     startActivity(i);
                 }
-                else if(position==21)
+                else if(position==17)
                 {
-                    Intent i=new Intent(MainActivity.this,ProfileActivity.class);
+                    Intent i=new Intent(MainActivity.this,SettingsActivity.class);
                     startActivity(i);
                 }
-                else if(position==19)
+                else if(position==15)
                 {
                     Intent i=new Intent(MainActivity.this,ContactusActivity.class);
+                    startActivity(i);
+                }
+                else if(position==19)//Logout
+                {
+                    finishAffinity();
+                    Intent i=new Intent(MainActivity.this,LoginRegActivity.class);
                     startActivity(i);
                 }
 

@@ -18,6 +18,7 @@ import com.example.bim.neem.Products.ProductDetailActivity;
 import com.example.bim.neem.R;
 import com.example.bim.neem.Service.IServiceInvokerCallback;
 import com.example.bim.neem.Service.ServiceBusiness;
+import com.example.bim.neem.Utils.DividerItemDecoration;
 import com.example.bim.neem.Utils.RecyclerTouchListener;
 import com.example.bim.neem.adapters.GalleryListAdapter;
 import com.example.bim.neem.adapters.ProductsAdapter;
@@ -48,7 +49,7 @@ public class GalleryActivity extends AppCompatActivity implements IServiceInvoke
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-       // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 

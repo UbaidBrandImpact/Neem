@@ -39,6 +39,8 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
     private List<Product> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private GalleryListAdapter mAdapter;
+    String id ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +49,19 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mContext = this;
         mAdapter = new GalleryListAdapter(movieList,this);
-
         recyclerView.setHasFixedSize(true);
-
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Product movie = movieList.get(position);
-                Intent i=new Intent(SelectedCategoryGallery.this,ProductDetailActivity.class);
-                i.putExtra("product_id",movie.getId());
+                Intent i=new Intent(SelectedCategoryGallery.this,SingleImageActivity.class);
+                i.putExtra("path",movie.getUrl());
                 startActivity(i);
             }
 
@@ -73,13 +74,12 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
         //prepareMovieData();
 
         Bundle extras = getIntent().getExtras();
-        String category_type = "all";
 
         if (extras != null) {
-            category_type = extras.getString("category_type");
+            id = extras.getString("id");
         }
 
-        callGalleryListService();
+        callService(id);
 
     }
 
@@ -101,9 +101,9 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
         return super.onOptionsItemSelected(item);
     }
 
-    private void callGalleryListService() {
+    private void callService(String id) {
         try {
-            ServiceBusiness.gallerycategoris(mContext, SelectedCategoryGallery.this, "gallerycategoris");
+            ServiceBusiness.gallerycontents(id,mContext, SelectedCategoryGallery.this, "gallerycontents");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,8 +114,8 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
         //JSONObject result = null;
         try {
             final JSONObject result = new JSONObject(response);
-            System.out.println("gallerycategoris Responce : " + result);
-            if(mode.equalsIgnoreCase("gallerycategoris"))
+            System.out.println("gallerycontents Responce : " + result);
+            if(mode.equalsIgnoreCase("gallerycontents"))
             {
                 if(result.getString("status").equalsIgnoreCase("1")) {
 
@@ -123,7 +123,7 @@ public class SelectedCategoryGallery extends AppCompatActivity implements IServi
                         movieList.clear();
                         for (int lop = 0 ; lop < dataArray.length();lop++){
                             JSONObject object = dataArray.getJSONObject(lop);
-                            Product product = new Product(object.getString("id"),object.getString("title"),object.getString("image"));
+                            Product product = new Product("","",object.getString("image"));
                             movieList.add(product);
                         }
                         mAdapter.notifyDataSetChanged();

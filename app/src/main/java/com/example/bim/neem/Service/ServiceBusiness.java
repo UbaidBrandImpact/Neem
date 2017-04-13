@@ -66,6 +66,14 @@ public class ServiceBusiness {
         new InvokeVolleyService(ctx, true, "getsingleproduct", params,
                 callback, mode);
     }
+
+    public static void gallerycontents(String id, Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("id", id);
+        System.out.println("gallerycontents  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "gallerycontents", params,
+                callback, mode);
+    }
     public static void aboutus(Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
         HashMap<String, String> params = new HashMap<>();
         System.out.println("aboutus  Json parameter : " + params);
@@ -79,4 +87,16 @@ public class ServiceBusiness {
         new InvokeVolleyService(ctx, true, "gallerycategoris", params,
                 callback, mode);
     }
+
+    public static void settings(String id, String password,  String dateOfBirth, String phone_number,Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("id", id);
+        params.put("password", password);
+        params.put("dob", dateOfBirth);
+        params.put("mobile", phone_number);
+        System.out.println("settings  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "settings", params,
+                callback, mode);
+    }
+
 }

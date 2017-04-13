@@ -51,7 +51,7 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
         Product product = List.get(position);
         holder.title.setText(product.getTitle());
        // new GalleryListAdapter.DownloadImageTask(holder.image)  .execute(product.getUrl());
-        Glide.with(cnx).load(R.drawable.videos).into(holder.image);
+        Glide.with(cnx).load(product.getUrl()).into(holder.image);
 
     }
 

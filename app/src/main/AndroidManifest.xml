@@ -40,13 +40,15 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_api_key" />
 
-        <activity android:name=".LoginReg.LoginRegActivity">
+        <activity android:name=".Splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginReg.LoginRegActivity" />
+
         <activity android:name=".Home.MainActivity" />
         <activity
             android:name=".Products.ProductsActivity"
@@ -61,7 +63,7 @@
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
             />
         <activity android:name=".AboutUs.AboutUsActivity" />
-        <activity android:name=".Profile.ProfileActivity" />
+        <activity android:name=".Settings.SettingsActivity" />
         <activity android:name=".Category.CategoryActivity" />
         <activity android:name=".LoyaltyProgram.LoyaltyProgram"></activity>
         <activity android:name=".Calendar.CalendarComingSoon"></activity>
@@ -70,6 +72,7 @@
         <activity android:name=".ContactUs.ContactusActivity" />
         <activity android:name=".Gallery.GalleryActivity" />
         <activity android:name=".Gallery.SelectedCategoryGallery" />
+        <activity android:name=".Gallery.SingleImageActivity" />
 
     </application>
 

@@ -54,7 +54,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         holder.title.setText(product.getTitle());
         holder.ingredients.setText(product.getIngredients());
      //   new ProductsAdapter.DownloadImageTask(holder.image).execute(product.getUrl());
-        Glide.with(cnx).load(R.drawable.videos).into(holder.image);
+        Glide.with(cnx).load(product.getUrl()).into(holder.image);
 
     }
 
