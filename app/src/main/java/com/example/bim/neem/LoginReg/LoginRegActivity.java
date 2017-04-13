@@ -17,6 +17,9 @@ public class LoginRegActivity extends FragmentActivity implements View.OnClickLi
 
     private FragmentTabHost mTabHost;
 
+    private boolean change_fragment=false;
+    int requestCod,resultCod;
+    Intent dataIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +27,30 @@ public class LoginRegActivity extends FragmentActivity implements View.OnClickLi
         init();
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            fragment.onActivityResult(requestCode, resultCode, data);
+        change_fragment = true;
+        requestCod = requestCode;
+        resultCod = resultCode;
+        dataIntent = data;
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(change_fragment)
+        {
+            change_fragment=false;
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                fragment.onActivityResult(requestCod, resultCod, dataIntent);
+            }
         }
     }
+
     private void init() {
 
         mTabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);

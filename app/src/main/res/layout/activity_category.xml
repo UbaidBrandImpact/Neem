@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bim.neem.Category.CategoryActivity"
+    android:orientation="vertical"
+    android:layout_weight="5"
+    android:background="@color/DarkGreen">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:background="@color/ToolbarColor">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Products"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        android:onClick="onBtnClick"
+        android:id="@+id/oral_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/oral_menu"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:onClick="onBtnClick"
+        android:id="@+id/hair_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/hair_menu"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:onClick="onBtnClick"
+        android:id="@+id/skin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/skin_menu"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:onClick="onBtnClick"
+        android:id="@+id/personal_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/personal_menu"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:onClick="onBtnClick"
+        android:id="@+id/kitchen_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/kitchen_hygene_menu"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+
+</LinearLayout>

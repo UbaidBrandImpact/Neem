@@ -5,11 +5,51 @@
     <string name="action_settings">Settings</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <string name="service">http://bimtesting.net/posfront/api/</string>
+    <string name="service">http://bimtesting.net/posfront/apis/</string>
+
+    <!--RegisterFragment-->
+    <string name="error_alert_box">Error</string>
+    <string name="fields_required">All fields required!</string>
+    <string name="password_didnt_match">Password didnt match</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="gender">Gender</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="phone_number">Phone number</string>
+
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_confirm_password">Enter confirm password</string>
+    <string name="choose_gender">Choose gender</string>
+    <string name="choose_date_of_birth">Choose date of birth</string>
+    <string name="enter_phone">Enter phone number</string>
+
+    <!--MainActivity-->
+    <string name="oral_menu">Oral</string>
+    <string name="hair_menu">Hair</string>
+    <string name="skin_menu">Skin</string>
+    <string name="personal_menu">Personal</string>
+    <string name="kitchen_hygene_menu">Kitchen and Hygene</string>
+    <string name="stories_menu">Stories</string>
+    <string name="gallery_menu">Gallery</string>
+    <string name="videos_menu">Videos</string>
+    <string name="csr_menu">CSR</string>
+    <string name="loyalty_menu">Loyalty Program</string>
+    <string name="settings_menu">Settings</string>
+    <string name="contact_menu">Contact</string>
+    <string name="about_us_menu">About Us</string>
+    <string name="my_profile_menu">My Profile</string>
+
 
     <!--MY PROFILE ACTIVITY-->
     <string name="title_username">Username</string>
     <string name="title_password">Password</string>
 
+    <!--LoyaltyProgram-->
+    <string name="coming_soon">Coming Soon</string>
 
 </resources>
+
+

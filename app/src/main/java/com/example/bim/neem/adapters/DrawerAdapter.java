@@ -52,7 +52,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.DrawerView
         if(position == 0) {
 
         }
-        else if(position==5 || position ==7 || position==9 || position ==11 || position==13)
+        else if(position==6 || position ==8 || position==10 || position ==12 || position==14 || position==16 || position==18 || position==20 || position==22)
         {
             holder.title.setVisibility(View.GONE);
             holder.divider.setVisibility(View.VISIBLE);
@@ -76,7 +76,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.DrawerView
         if(position == 0){
             return  TYPE_HEADER;
         }
-        else if(position == 5 || position == 7 || position==9 || position==11 || position==13)
+        else if(position==6 || position ==8 || position==10 || position ==12 || position==14 || position==16 || position==18|| position==20 || position==22)
         {
             return TYPE_DIVIDER;
         }
