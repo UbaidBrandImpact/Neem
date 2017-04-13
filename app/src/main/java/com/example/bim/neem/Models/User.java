@@ -6,7 +6,21 @@ package com.example.bim.neem.Models;
 
 public class User {
     private static User mInstance = null;
-    private String id,email,mobile,gender,age;
+    private String id;
+    private String email;
+    private String mobile;
+    private String gender;
+    private String age;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
 
     public User(){
         id = "";
@@ -14,6 +28,7 @@ public class User {
         mobile = "";
         gender = "";
         age = "";
+        password="";
     }
 
     public static User getInstance(){

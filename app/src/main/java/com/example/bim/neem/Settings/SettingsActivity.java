@@ -50,13 +50,17 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         edt_pass = (EditText) findViewById(R.id.edt_password);
+        edt_pass.setText(User.getInstance().getPassword());
         edt_confirm = (EditText) findViewById(R.id.edt_confirm);
+        edt_confirm.setText(User.getInstance().getPassword());
         edt_phone = (EditText) findViewById(R.id.edt_phone);
+        edt_phone.setText(User.getInstance().getMobile());
         dob = (Button) findViewById(R.id.dob);
+        dob.setText(User.getInstance().getAge());
         dob.setOnClickListener(this);
         save = (Button) findViewById(R.id.btn_save);
         save.setOnClickListener(this);
-
+        dateOfBirth=User.getInstance().getAge();
 
         setDateOfBirth();
     }

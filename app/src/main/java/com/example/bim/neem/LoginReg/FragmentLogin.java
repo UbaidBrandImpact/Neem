@@ -142,6 +142,7 @@ public class FragmentLogin extends Fragment implements  View.OnClickListener , I
 
                     User.getInstance().setId(result.getJSONObject("data").getString("id"));
                     User.getInstance().setEmail(result.getJSONObject("data").getString("email"));
+                    User.getInstance().setPassword(edt_pass.getText().toString());
                     User.getInstance().setMobile(result.getJSONObject("data").getString("mobile"));
                     User.getInstance().setGender(result.getJSONObject("data").getString("gender"));
                     User.getInstance().setAge(result.getJSONObject("data").getString("age"));
