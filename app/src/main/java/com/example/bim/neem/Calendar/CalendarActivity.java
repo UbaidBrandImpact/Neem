@@ -62,60 +62,61 @@ public class CalendarActivity extends AppCompatActivity {
             }
         }));
 
-        prepareMovieData();
+//        prepareMovieData();
 
     }
-    private void prepareMovieData() {
-        Product movie = new Product("Mad Max: Fury Road", "Action & Adventure", "2015");
-        movieList.add(movie);
 
-        movie = new Product("Inside Out", "Animation, Kids & Family", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Star Wars: Episode VII - The Force Awakens", "Action", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Shaun the Sheep", "Animation", "2015");
-        movieList.add(movie);
-
-        movie = new Product("The Martian", "Science Fiction & Fantasy", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Mission: Impossible Rogue Nation", "Action", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Up", "Animation", "2009");
-        movieList.add(movie);
-
-        movie = new Product("Star Trek", "Science Fiction", "2009");
-        movieList.add(movie);
-
-        movie = new Product("The LEGO Product", "Animation", "2014");
-        movieList.add(movie);
-
-        movie = new Product("Iron Man", "Action & Adventure", "2008");
-        movieList.add(movie);
-
-        movie = new Product("Aliens", "Science Fiction", "1986");
-        movieList.add(movie);
-
-        movie = new Product("Chicken Run", "Animation", "2000");
-        movieList.add(movie);
-
-        movie = new Product("Back to the Future", "Science Fiction", "1985");
-        movieList.add(movie);
-
-        movie = new Product("Raiders of the Lost Ark", "Action & Adventure", "1981");
-        movieList.add(movie);
-
-        movie = new Product("Goldfinger", "Action & Adventure", "1965");
-        movieList.add(movie);
-
-        movie = new Product("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
-        movieList.add(movie);
-
-        mAdapter.notifyDataSetChanged();
-    }
+//    private void prepareMovieData() {
+//        Product movie = new Product("Mad Max: Fury Road", "Action & Adventure", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("Inside Out", "Animation, Kids & Family", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("Star Wars: Episode VII - The Force Awakens", "Action", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("Shaun the Sheep", "Animation", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("The Martian", "Science Fiction & Fantasy", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("Mission: Impossible Rogue Nation", "Action", "2015");
+//        movieList.add(movie);
+//
+//        movie = new Product("Up", "Animation", "2009");
+//        movieList.add(movie);
+//
+//        movie = new Product("Star Trek", "Science Fiction", "2009");
+//        movieList.add(movie);
+//
+//        movie = new Product("The LEGO Product", "Animation", "2014");
+//        movieList.add(movie);
+//
+//        movie = new Product("Iron Man", "Action & Adventure", "2008");
+//        movieList.add(movie);
+//
+//        movie = new Product("Aliens", "Science Fiction", "1986");
+//        movieList.add(movie);
+//
+//        movie = new Product("Chicken Run", "Animation", "2000");
+//        movieList.add(movie);
+//
+//        movie = new Product("Back to the Future", "Science Fiction", "1985");
+//        movieList.add(movie);
+//
+//        movie = new Product("Raiders of the Lost Ark", "Action & Adventure", "1981");
+//        movieList.add(movie);
+//
+//        movie = new Product("Goldfinger", "Action & Adventure", "1965");
+//        movieList.add(movie);
+//
+//        movie = new Product("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
+//        movieList.add(movie);
+//
+//        mAdapter.notifyDataSetChanged();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

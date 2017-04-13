@@ -1,4 +1,4 @@
-package com.example.bim.neem.models;
+package com.example.bim.neem.Models;
 
 /**
  * Created by darshanz on 7/6/15.

@@ -30,7 +30,7 @@
                     android:layout_marginLeft="15dp"
                     android:id="@+id/tv"
                     android:layout_marginTop="15dp"
-                    android:text="Username"/>
+                    android:text="@string/email"/>
 
 
                 <EditText
@@ -43,9 +43,11 @@
                     android:textColor="#fff"
                     android:textColorHint="#fff"
                     android:layout_margin="10dp"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/enter_email"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +56,7 @@
                     android:layout_below="@id/edt_email"
                     android:id="@+id/tv_pass"
                     android:layout_marginTop="5dp"
-                    android:text="Password"/>
+                    android:text="@string/password" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -67,6 +69,7 @@
                     android:textColorHint="#fff"
                     android:layout_margin="10dp"
                     android:inputType="textPassword"
+                    android:hint="@string/enter_password"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -78,7 +81,7 @@
                     android:layout_below="@id/edt_password"
                     android:id="@+id/tv_confirm"
                     android:layout_marginTop="5dp"
-                    android:text="Confirm Password"/>
+                    android:text="@string/confirm_password"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -91,6 +94,7 @@
                     android:textColorHint="#fff"
                     android:layout_margin="10dp"
                     android:inputType="textPassword"
+                    android:hint="@string/enter_confirm_password"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp" />
 
@@ -104,7 +108,7 @@
                     android:layout_below="@id/edt_confirm"
                     android:id="@+id/tv_gender"
                     android:layout_marginTop="5dp"
-                    android:text="Gender"/>
+                    android:text="@string/gender"/>
 
                 <Spinner
                     android:layout_margin="10dp"
@@ -125,9 +129,9 @@
                     android:layout_below="@id/spinner_gender"
                     android:id="@+id/tv_dob"
                     android:layout_marginTop="5dp"
-                    android:text="Date of Birth"/>
+                    android:text="@string/date_of_birth"/>
 
-                <TextView
+                <Button
                     android:layout_margin="10dp"
                     android:layout_below="@+id/tv_dob"
                     android:id="@+id/dob"
@@ -136,7 +140,11 @@
                     android:background="@drawable/round_rectangle"
                     android:popupBackground="#13a28d"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:text="@string/choose_date_of_birth"
+                    android:textColor="@android:color/white"
+                    android:gravity="left|center"
+                    android:textAllCaps="false" />
 
 
                 <TextView
@@ -147,7 +155,7 @@
                     android:layout_below="@id/dob"
                     android:id="@+id/tv_phone"
                     android:layout_marginTop="5dp"
-                    android:text="Phone"/>
+                    android:text="@string/phone_number"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -161,22 +169,29 @@
                     android:layout_margin="10dp"
                     android:inputType="phone"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/enter_phone"/>
+
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:layout_width="250dp"
+                    android:layout_height="45dp"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/btn_register"
+                    android:background="@drawable/sign_up"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_below="@+id/edt_phone"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="onClick"/>
+
             </RelativeLayout>
+
+
 
         </ScrollView>
 
-    <Button
-        android:layout_marginTop="30dp"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:gravity="center_horizontal"
-        android:id="@+id/btn_register"
-        android:background="@drawable/sign_up"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_below="@+id/scrollView2"
-        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

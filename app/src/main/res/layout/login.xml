@@ -37,7 +37,7 @@
             android:background="@drawable/round_rectangle"
             android:textColor="#fff"
             android:textColorHint="#fff"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
            />
 
         <TextView

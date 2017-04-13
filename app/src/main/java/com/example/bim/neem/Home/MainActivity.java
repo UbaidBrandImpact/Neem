@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.bim.neem.AboutUs.AboutUsActivity;
 import com.example.bim.neem.Calendar.CalendarActivity;
+import com.example.bim.neem.Category.CategoryActivity;
+import com.example.bim.neem.LoyaltyProgram.LoyaltyProgram;
 import com.example.bim.neem.Products.ProductsActivity;
 import com.example.bim.neem.Profile.ProfileActivity;
 import com.example.bim.neem.R;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActionBarDrawerToggle mDrawerToggle;
 
-    RelativeLayout rl_products,rl_videos;
+    RelativeLayout rl_products,rl_loyalty,rl_videos;
     ImageView calendar;
 
     @Override
@@ -48,10 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         rl_products = (RelativeLayout) findViewById(R.id.rl_products);
+        rl_loyalty = (RelativeLayout) findViewById(R.id.rl_loyalty);
         rl_videos = (RelativeLayout) findViewById(R.id.rl_videos);
         calendar = (ImageView) findViewById(R.id.calendar);
         calendar.setOnClickListener(this);
         rl_products.setOnClickListener(this);
+        rl_loyalty.setOnClickListener(this);
         rl_videos.setOnClickListener(this);
 
     //    setSupportActionBar(mToolbar);
@@ -60,56 +64,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerItemList = new ArrayList<DrawerItem>();
         DrawerItem item = new DrawerItem();
 
-        item.setTitle("Oral");
+        item.setTitle(getString(R.string.oral_menu));
         mDrawerItemList.add(item);
 
         DrawerItem item2 = new DrawerItem();
-        item2.setTitle("Hair");
+        item2.setTitle(getString(R.string.hair_menu));
         mDrawerItemList.add(item2);
 
         DrawerItem item3 = new DrawerItem();
-        item3.setTitle("Skin");
+        item3.setTitle(getString(R.string.skin_menu));
         mDrawerItemList.add(item3);
 
         DrawerItem item4 = new DrawerItem();
-        item4.setTitle("Personal");
+        item4.setTitle(getString(R.string.personal_menu));
         mDrawerItemList.add(item4);
 
-        DrawerItem item5 = new DrawerItem(); //divider
-        item5.setTitle("Divider");
+        DrawerItem item5 = new DrawerItem();
+        item5.setTitle(getString(R.string.kitchen_hygene_menu));
         mDrawerItemList.add(item5);
 
-        DrawerItem item6 = new DrawerItem();
-        item6.setTitle("Stories");
+        DrawerItem item6 = new DrawerItem(); //divider
+        item6.setTitle("Divider");
         mDrawerItemList.add(item6);
 
-        DrawerItem item7 = new DrawerItem(); //divider
-        item7.setTitle("Divider");
+        DrawerItem item7 = new DrawerItem();
+        item7.setTitle(getString(R.string.stories_menu));
         mDrawerItemList.add(item7);
 
         DrawerItem item8 = new DrawerItem();
-        item8.setTitle("Videos");
+        item8.setTitle("Divider");
         mDrawerItemList.add(item8);
 
-        DrawerItem item9 = new DrawerItem(); //divider
-        item9.setTitle("Divider");
+        DrawerItem item9 = new DrawerItem();
+        item9.setTitle(getString(R.string.about_us_menu));
         mDrawerItemList.add(item9);
 
         DrawerItem item10= new DrawerItem();
-        item10.setTitle("About Us");
+        item10.setTitle("Divider");
         mDrawerItemList.add(item10);
 
-        DrawerItem item11 = new DrawerItem(); //divider
-        item11.setTitle("Divider");
+        DrawerItem item11 = new DrawerItem();
+        item11.setTitle(getString(R.string.gallery_menu));
         mDrawerItemList.add(item11);
 
         DrawerItem item12= new DrawerItem();
-        item12.setTitle("My Profile");
+        item12.setTitle("Divider");
         mDrawerItemList.add(item12);
 
-        DrawerItem item13 = new DrawerItem(); //divider
-        item13.setTitle("Divider");
+        DrawerItem item13 = new DrawerItem();
+        item13.setTitle(getString(R.string.videos_menu));
         mDrawerItemList.add(item13);
+
+        DrawerItem item14= new DrawerItem();
+        item14.setTitle("Divider");
+        mDrawerItemList.add(item14);
+
+        DrawerItem item15 = new DrawerItem();
+        item15.setTitle(getString(R.string.csr_menu));
+        mDrawerItemList.add(item15);
+
+        DrawerItem item16= new DrawerItem();
+        item16.setTitle("Divider");
+        mDrawerItemList.add(item16);
+
+        DrawerItem item17 = new DrawerItem();
+        item17.setTitle(getString(R.string.loyalty_menu));
+        mDrawerItemList.add(item17);
+
+        DrawerItem item18= new DrawerItem();
+        item18.setTitle("Divider");
+        mDrawerItemList.add(item18);
+
+        DrawerItem item19 = new DrawerItem();
+        item19.setTitle(getString(R.string.contact_menu));
+        mDrawerItemList.add(item19);
+
+        DrawerItem item20= new DrawerItem();
+        item20.setTitle("Divider");
+        mDrawerItemList.add(item20);
+
+        DrawerItem item21 = new DrawerItem();
+        item21.setTitle(getString(R.string.settings_menu));
+        mDrawerItemList.add(item21);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.drawerRecyclerView);
 
@@ -144,23 +180,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(View v, int position) {
 
-
-                if(position==6)
+                if(position == 1){
+                        goToProductsActivity("oral");
+                }
+                else if(position == 2){
+                    goToProductsActivity("hair");
+                }
+                else if(position == 3){
+                    goToProductsActivity("skin");
+                }
+                else if(position == 4){
+                    goToProductsActivity("personal");
+                }
+                else if(position == 5){
+                    goToProductsActivity("kitchen");
+                }
+                else if(position==6)
                 {
                     Intent i=new Intent(MainActivity.this,StoriesActivity.class);
                     startActivity(i);
                 }
-                if(position==8)
+                else if(position==8)
                 {
                     Intent i=new Intent(MainActivity.this,VideoActivity.class);
                     startActivity(i);
                 }
-                if(position==10)
+                else if(position==10)
                 {
                     Intent i=new Intent(MainActivity.this,AboutUsActivity.class);
                     startActivity(i);
                 }
-                if(position==12)
+                else if(position==12)
                 {
                     Intent i=new Intent(MainActivity.this,ProfileActivity.class);
                     startActivity(i);
@@ -178,6 +228,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void goToProductsActivity(String type){
+        Intent intent = new Intent(this,ProductsActivity.class);
+        intent.putExtra("category_type",type);
+        startActivity(intent);
     }
 
     @Override
@@ -203,9 +259,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.rl_products:
-                Intent i=new Intent(this,ProductsActivity.class);
+                Intent i=new Intent(this,CategoryActivity.class);
                 startActivity(i);
+                break;
 
+            case R.id.rl_loyalty:
+                Intent intent = new Intent(this, LoyaltyProgram.class);
+                startActivity(intent);
                 break;
 
             case R.id.calendar:

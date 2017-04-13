@@ -21,9 +21,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="fitXY"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:id="@+id/iv"
-            android:src="@drawable/products"/>
+            />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:text="TEXT"
             android:layout_marginLeft="15dp"
             android:layout_alignParentTop="true"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView

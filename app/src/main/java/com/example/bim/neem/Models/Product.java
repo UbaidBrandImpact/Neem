@@ -2,15 +2,21 @@ package com.example.bim.neem.Models;
 
 
 public class Product {
-    private String title, ingredients, url;
+    private String id,title, ingredients, url;
 
 
 
-    public Product(String title, String ingredients, String url) {
+    public Product(String id,String title, String ingredients, String url) {
+        this.id = id;
         this.title = title;
         this.ingredients = ingredients;
         this.url = url;
     }
+
+    public void setId(String id){
+        this.id = id;
+    }
+    public String getId(){return id;}
 
     public String getTitle() {
         return title;

@@ -1,5 +1,7 @@
 package com.example.bim.neem.Products;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +14,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.bim.neem.Home.MainActivity;
+import com.example.bim.neem.LoginReg.FragmentLogin;
 import com.example.bim.neem.Models.Product;
+import com.example.bim.neem.Models.User;
+import com.example.bim.neem.Service.IServiceInvokerCallback;
+import com.example.bim.neem.Service.ServiceBusiness;
 import com.example.bim.neem.adapters.ProductsAdapter;
 import com.example.bim.neem.R;
 import com.example.bim.neem.Utils.RecyclerTouchListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsActivity extends AppCompatActivity {
+public class ProductsActivity extends AppCompatActivity implements IServiceInvokerCallback {
 
     private Toolbar mToolbar;
-
+    private Context mContext;
     private List<Product> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private ProductsAdapter mAdapter;
@@ -33,7 +44,7 @@ public class ProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_products);
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
+        mContext = this;
         mAdapter = new ProductsAdapter(movieList);
 
         recyclerView.setHasFixedSize(true);
@@ -48,6 +59,7 @@ public class ProductsActivity extends AppCompatActivity {
             public void onClick(View view, int position) {
                 Product movie = movieList.get(position);
                 Intent i=new Intent(ProductsActivity.this,ProductDetailActivity.class);
+                i.putExtra("product_id",movie.getId());
                 startActivity(i);
             }
 
@@ -57,60 +69,19 @@ public class ProductsActivity extends AppCompatActivity {
             }
         }));
 
-        prepareMovieData();
+        //prepareMovieData();
+
+        Bundle extras = getIntent().getExtras();
+        String category_type = "all";
+
+        if (extras != null) {
+            category_type = extras.getString("category_type");
+        }
+
+        callProductByTypeService(category_type);
 
     }
-    private void prepareMovieData() {
-        Product movie = new Product("Mad Max: Fury Road", "Action & Adventure", "2015");
-        movieList.add(movie);
 
-        movie = new Product("Inside Out", "Animation, Kids & Family", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Star Wars: Episode VII - The Force Awakens", "Action", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Shaun the Sheep", "Animation", "2015");
-        movieList.add(movie);
-
-        movie = new Product("The Martian", "Science Fiction & Fantasy", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Mission: Impossible Rogue Nation", "Action", "2015");
-        movieList.add(movie);
-
-        movie = new Product("Up", "Animation", "2009");
-        movieList.add(movie);
-
-        movie = new Product("Star Trek", "Science Fiction", "2009");
-        movieList.add(movie);
-
-        movie = new Product("The LEGO Product", "Animation", "2014");
-        movieList.add(movie);
-
-        movie = new Product("Iron Man", "Action & Adventure", "2008");
-        movieList.add(movie);
-
-        movie = new Product("Aliens", "Science Fiction", "1986");
-        movieList.add(movie);
-
-        movie = new Product("Chicken Run", "Animation", "2000");
-        movieList.add(movie);
-
-        movie = new Product("Back to the Future", "Science Fiction", "1985");
-        movieList.add(movie);
-
-        movie = new Product("Raiders of the Lost Ark", "Action & Adventure", "1981");
-        movieList.add(movie);
-
-        movie = new Product("Goldfinger", "Action & Adventure", "1965");
-        movieList.add(movie);
-
-        movie = new Product("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
-        movieList.add(movie);
-
-        mAdapter.notifyDataSetChanged();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -127,5 +98,56 @@ public class ProductsActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void callProductByTypeService(String type) {
+        try {
+            ServiceBusiness.getproductbytype(type,mContext, ProductsActivity.this, "getProductByType");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onRequestCompleted(String response, String mode)  {
+        //JSONObject result = null;
+        try {
+            final JSONObject result = new JSONObject(response);
+            System.out.println("getProductByType Responce : " + result);
+            if(mode.equalsIgnoreCase("getProductByType"))
+            {
+                if(result.getString("status").equalsIgnoreCase("1")) {
+                    JSONObject jsonObject = result.getJSONObject("data");
+                    if(jsonObject != null){
+                        JSONArray dataArray = jsonObject.getJSONArray("result");
+                        movieList.clear();
+                        for (int lop = 0 ; lop < dataArray.length();lop++){
+                            JSONObject object = dataArray.getJSONObject(lop);
+                            Product product = new Product(object.getString("id"),object.getString("title"),object.getString("ingredients"),object.getString("image"));
+                            movieList.add(product);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }
+                else
+                {
+                    new android.support.v7.app.AlertDialog.Builder(mContext)
+                            .setTitle(getString(R.string.error_alert_box))
+                            .setMessage(result.getString("message"))
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // continue with delete
+                                    dialog.dismiss();
+
+                                }
+                            })
+
+                            .show();
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
