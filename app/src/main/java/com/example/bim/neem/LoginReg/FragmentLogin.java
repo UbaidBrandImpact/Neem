@@ -106,6 +106,8 @@ public class FragmentLogin extends Fragment implements  View.OnClickListener {
     }
 
     private void callLoginService(String email,String password) {
+
+
         try {
       //      ServiceBusiness.login(email,password,myContext, FragmentLogin.this, "login");
         } catch (Exception e) {
