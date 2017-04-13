@@ -139,7 +139,19 @@ public class FragmentLogin extends Fragment implements  View.OnClickListener , I
             if(mode.equalsIgnoreCase("login"))
             {
                 if(result.getString("status").equalsIgnoreCase("1")) {
-                    new android.support.v7.app.AlertDialog.Builder(myContext)
+
+                    User.getInstance().setId(result.getJSONObject("data").getString("id"));
+                    User.getInstance().setEmail(result.getJSONObject("data").getString("email"));
+                    User.getInstance().setMobile(result.getJSONObject("data").getString("mobile"));
+                    User.getInstance().setGender(result.getJSONObject("data").getString("gender"));
+                    User.getInstance().setAge(result.getJSONObject("data").getString("age"));
+
+
+
+
+                    Intent i = new Intent(myContext, MainActivity.class);
+                    myContext.startActivity(i);
+                   /* new android.support.v7.app.AlertDialog.Builder(myContext)
                             .setTitle(getString(R.string.app_name))
                             .setMessage(result.getString("message"))
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -165,7 +177,7 @@ public class FragmentLogin extends Fragment implements  View.OnClickListener , I
                                 }
                             })
 
-                            .show();
+                            .show();*/
                 }
                 else
                 {

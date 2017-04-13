@@ -17,16 +17,22 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.bim.neem.AboutUs.AboutUsActivity;
+import com.example.bim.neem.CSR.CSRComingSoon;
 import com.example.bim.neem.Calendar.CalendarActivity;
+import com.example.bim.neem.Calendar.CalendarComingSoon;
 import com.example.bim.neem.Category.CategoryActivity;
+import com.example.bim.neem.ContactUs.ContactusActivity;
+import com.example.bim.neem.Gallery.GalleryActivity;
 import com.example.bim.neem.LoyaltyProgram.LoyaltyProgram;
 import com.example.bim.neem.Products.ProductsActivity;
 import com.example.bim.neem.Profile.ProfileActivity;
 import com.example.bim.neem.R;
 import com.example.bim.neem.Stories.StoriesActivity;
+import com.example.bim.neem.Stories.StoriesComingSoon;
 import com.example.bim.neem.Video.VideoActivity;
 import com.example.bim.neem.adapters.DrawerAdapter;
 import com.example.bim.neem.Models.DrawerItem;
+import com.example.bim.neem.adapters.GalleryListAdapter;
 
 import java.util.ArrayList;
 
@@ -195,24 +201,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else if(position == 5){
                     goToProductsActivity("kitchen");
                 }
-                else if(position==6)
+                else if(position==7)
                 {
-                    Intent i=new Intent(MainActivity.this,StoriesActivity.class);
+                   // Intent i=new Intent(MainActivity.this,StoriesActivity.class);
+                    Intent i=new Intent(MainActivity.this,StoriesComingSoon.class);
                     startActivity(i);
                 }
-                else if(position==8)
+                else if(position==13)
                 {
                     Intent i=new Intent(MainActivity.this,VideoActivity.class);
                     startActivity(i);
                 }
-                else if(position==10)
+                else if(position==17)
+                {
+                    Intent i=new Intent(MainActivity.this,LoyaltyProgram.class);
+                    startActivity(i);
+                }
+                else if(position==15)
+                {
+                    Intent i=new Intent(MainActivity.this,CSRComingSoon.class);
+                    startActivity(i);
+                }
+                else if(position==9)
                 {
                     Intent i=new Intent(MainActivity.this,AboutUsActivity.class);
                     startActivity(i);
                 }
-                else if(position==12)
+                else if(position==11)
+                {
+                    Intent i=new Intent(MainActivity.this,GalleryActivity.class);
+                    startActivity(i);
+                }
+                else if(position==21)
                 {
                     Intent i=new Intent(MainActivity.this,ProfileActivity.class);
+                    startActivity(i);
+                }
+                else if(position==19)
+                {
+                    Intent i=new Intent(MainActivity.this,ContactusActivity.class);
                     startActivity(i);
                 }
 
@@ -269,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.calendar:
-                i=new Intent(this,CalendarActivity.class);
+                i=new Intent(this,CalendarComingSoon.class);
                 startActivity(i);
                 break;
 

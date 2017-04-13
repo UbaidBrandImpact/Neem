@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#f0f0f0"
     android:layout_height="match_parent"
-    tools:context="com.example.bim.neem.LoyaltyProgram.LoyaltyProgram">
-
+    >
     <android.support.v7.widget.Toolbar
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -19,20 +20,15 @@
             android:gravity="center"
             android:textColor="#fff"
             android:textStyle="bold"
-            android:id="@+id/toolbar_title"
             android:textSize="20sp"
-            android:text="@string/loyalty_menu"/>
+            android:text="Gallery"/>
 
     </android.support.v7.widget.Toolbar>
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/appBar"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/ToolbarColor"
-        android:textStyle="bold"
-        android:textSize="40sp"
-        android:text="@string/coming_soon"/>
+        android:scrollbars="vertical" />
 
 </RelativeLayout>

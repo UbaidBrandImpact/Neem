@@ -49,15 +49,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Video video = List.get(position);
-        String path=video.getUrl();
-      //  Glide.with(context).load(path).into(holder.videoView );
+        String path=video.getImage();
         holder.title.setText(video.getTitle());
         holder.duration.setText(video.getDuration());
-
+        Glide.with(context).load(path).into(holder.videoView );
       /*  Uri uri= Uri.parse(path);
         holder.videoView.setVideoURI(uri);
         */
-
     }
 
     @Override

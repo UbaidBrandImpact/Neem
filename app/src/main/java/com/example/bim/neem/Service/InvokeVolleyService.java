@@ -66,10 +66,8 @@ public class InvokeVolleyService {
                         public void onErrorResponse(VolleyError error) {
                             CustomProgressDialog.dismissProgressDailog();
                             error.printStackTrace();
-                            Toast.makeText(mCtx,error.getMessage(), Toast.LENGTH_SHORT).show();
-                            Log.e(" Json ERROR : " , error.getMessage());
-
-                            ServiceResponse=error.getMessage();
+                            Log.e(" Json ERROR : " , String.valueOf(error));
+                            ServiceResponse=String.valueOf(error);
                             try {
                                 mCallback.onRequestCompleted(ServiceResponse, mMode);
                             } catch (JSONException e) {

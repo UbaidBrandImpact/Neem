@@ -13,6 +13,8 @@
     <string name="password_didnt_match">Password didnt match</string>
 
     <string name="email">Email</string>
+    <string name="fax">Fax</string>
+
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="gender">Gender</string>
@@ -49,6 +51,14 @@
 
     <!--LoyaltyProgram-->
     <string name="coming_soon">Coming Soon</string>
+
+    <!--Contact Us-->
+    <string name="title_contactus">Contact Us</string>
+    <string name="map">Our Location</string>
+    <string name="Phone">Phone</string>
+    <string name="Email">Email</string>
+    <string name="google_api_key">AIzaSyB_HJpqZbrK6iwnvVTtm7j04O-FnkVac-g</string>
+
 
 </resources>
 

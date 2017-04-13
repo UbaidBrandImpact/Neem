@@ -13,6 +13,12 @@ public class Product {
         this.url = url;
     }
 
+    public Product(String id, String title, String image) {
+        this.id = id;
+        this.title = title;
+        this.url = image;
+    }
+
     public void setId(String id){
         this.id = id;
     }

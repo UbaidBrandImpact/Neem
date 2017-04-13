@@ -13,6 +13,17 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+    <uses-permission android:name="in.wptrafficanalyzer.locationroutemylocationv2.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <permission
+        android:name="com.example.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.example.permission.MAPS_RECEIVE"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +31,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_api_key" />
+
         <activity android:name=".LoginReg.LoginRegActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,11 +56,21 @@
         <activity android:name=".Stories.StoryDetailActivity" />
         <activity android:name=".Calendar.CalendarActivity" />
         <activity android:name=".Video.VideoActivity" />
-        <activity android:name=".Video.VideoDetailActivity" />
+        <activity android:name=".Video.VideoDetailActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
+            />
         <activity android:name=".AboutUs.AboutUsActivity" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Category.CategoryActivity" />
         <activity android:name=".LoyaltyProgram.LoyaltyProgram"></activity>
+        <activity android:name=".Calendar.CalendarComingSoon"></activity>
+        <activity android:name=".Stories.StoriesComingSoon" />
+        <activity android:name=".CSR.CSRComingSoon" />
+        <activity android:name=".ContactUs.ContactusActivity" />
+        <activity android:name=".Gallery.GalleryActivity" />
+        <activity android:name=".Gallery.SelectedCategoryGallery" />
+
     </application>
 
 </manifest>

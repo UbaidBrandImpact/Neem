@@ -1,23 +1,14 @@
 package com.example.bim.neem.Stories;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-
-import com.example.bim.neem.Models.Product;
-import com.example.bim.neem.adapters.ProductsAdapter;
+import com.example.bim.neem.Models.Story;
+import com.example.bim.neem.adapters.CustomPagerAdapter;
 import com.example.bim.neem.R;
-import com.example.bim.neem.Utils.RecyclerTouchListener;
-import com.example.bim.neem.adapters.StoryAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,45 +16,30 @@ public class StoriesActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
 
-    private List<Product> movieList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private StoryAdapter mAdapter;
+    private List<Story> stories = new ArrayList<>();
+    private ViewPager viewpager;
+    private CustomPagerAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stories);
         mToolbar = (Toolbar)findViewById(R.id.appBar);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        mAdapter = new StoryAdapter(movieList);
-
-        recyclerView.setHasFixedSize(true);
-      //  RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-
-        LinearLayoutManager layoutManager= new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Product movie = movieList.get(position);
-                Intent i=new Intent(StoriesActivity.this,StoryDetailActivity.class);
-                startActivity(i);
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
-
-//        prepareMovieData();
-
+        prepareMovieData();
+        viewpager = (ViewPager) findViewById(R.id.viewpager);
+        mAdapter = new CustomPagerAdapter(stories,this);
+        viewpager.setAdapter(mAdapter);
     }
-
+    private void prepareMovieData() {
+        Story movie = new Story("Mad Max: Fury Road", "Action & Adventure", "2015");
+        stories.add(movie);
+        movie = new Story("Mad Max:  Road", "Action & Adventure", "2015");
+        stories.add(movie);
+        movie = new Story("Mad : Fury Road", "Action & Adventure", "2015");
+        stories.add(movie);
+        movie = new Story(" : Fury Road", "Action & Adventure", "2015");
+        stories.add(movie);
+    }
 //    private void prepareMovieData() {
 //        Product movie = new Product("Mad Max: Fury Road", "Action & Adventure", "2015");
 //        movieList.add(movie);

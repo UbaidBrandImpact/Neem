@@ -81,7 +81,7 @@ public class ProductDetailActivity extends AppCompatActivity implements IService
 
     private void callProductByTypeService(String type) {
         try {
-            ServiceBusiness.singleproduct(type,mContext, ProductDetailActivity.this, "singleproduct");
+            ServiceBusiness.getsingleproduct(type,mContext, ProductDetailActivity.this, "singleproduct");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,15 +95,15 @@ public class ProductDetailActivity extends AppCompatActivity implements IService
             System.out.println("singleproduct Responce : " + result);
             if(mode.equalsIgnoreCase("singleproduct"))
             {
-                if(result.getString("status").equalsIgnoreCase("1")) {
-                    JSONArray jsonArray = result.getJSONArray("data");
-                    if(jsonArray != null && jsonArray.length() > 0){
-                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+          //      "data":{"product":[{"id":"1","title":"Product title ","ingredients":"This is ingredients field ","type":"hair"}],"image":"http:\/\/bimtesting.net\/posfront\/assets\/allianz\/images\/product1.png"},"status":1}
+
+            if(result.getString("status").equalsIgnoreCase("1")) {
+                        JSONObject jsonObject = result.getJSONObject("data");
                         new ProductDetailActivity.DownloadImageTask(imageView)
-                                .execute(jsonObject.getString("thumbnail"));
+                                .execute(jsonObject.getString("image"));
                         titleTextView.setText(jsonObject.getString("title"));
                         detailTextView.setText(jsonObject.getString("ingredients"));
-                    }
+
                 }
                 else
                 {

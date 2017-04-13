@@ -58,10 +58,14 @@
 
     </LinearLayout>
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ll"
+    android:layout_margin="10dp"
+    >
     <TextView
         android:id="@+id/tv_details"
-        android:layout_below="@id/ll"
         android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -70,4 +74,5 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:layout_height="wrap_content" />
+</ScrollView>
 </RelativeLayout>

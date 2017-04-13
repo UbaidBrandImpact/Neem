@@ -46,12 +46,37 @@ public class ServiceBusiness {
                 callback, mode);
     }
 
-    public static void singleproduct(String type, Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+    public static void getvideos(Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
         HashMap<String, String> params = new HashMap<>();
-        params.put("id", type);
-        System.out.println("singleproduct  Json parameter : " + params);
-        new InvokeVolleyService(ctx, true, "singleproduct", params,
+        System.out.println("getavideos  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "getvideos", params,
                 callback, mode);
     }
 
+    public static void contactus(Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        System.out.println("contactus  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "contactus", params,
+                callback, mode);
+    }
+    public static void getsingleproduct(String type, Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("id", type);
+        System.out.println("getsingleproduct  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "getsingleproduct", params,
+                callback, mode);
+    }
+    public static void aboutus(Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        System.out.println("aboutus  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "about", params,
+                callback, mode);
+    }
+
+    public static void gallerycategoris(Context ctx, IServiceInvokerCallback callback, String mode) throws Exception {
+        HashMap<String, String> params = new HashMap<>();
+        System.out.println("gallerycategoris  Json parameter : " + params);
+        new InvokeVolleyService(ctx, true, "gallerycategoris", params,
+                callback, mode);
+    }
 }

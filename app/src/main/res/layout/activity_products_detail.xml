@@ -1,10 +1,9 @@
 <RelativeLayout
     android:id="@+id/main_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     >
     <android.support.v7.widget.Toolbar
         android:id="@+id/appBar"
@@ -52,7 +51,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="TEXT"
+                android:text=""
                 android:layout_alignParentTop="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -86,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. "
+            android:text=""
             android:textColor="@android:color/black"
             android:layout_marginRight="15dp"
             android:textSize="14sp"
