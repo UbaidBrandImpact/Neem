@@ -1,5 +1,6 @@
 package com.example.bim.neem.adapters;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.bim.neem.Models.Product;
 import com.example.bim.neem.R;
 
@@ -20,6 +22,7 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyViewHolder> {
 
     private List<Product> List;
+    Context cnx;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, ingredients; ImageView image;
@@ -32,8 +35,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         }
     }
 
-    public ProductsAdapter(List<Product> list) {
+    public ProductsAdapter(List<Product> list,Context cnx) {
         this.List = list;
+        this.cnx = cnx;
     }
 
     @Override
@@ -49,8 +53,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         Product product = List.get(position);
         holder.title.setText(product.getTitle());
         holder.ingredients.setText(product.getIngredients());
-        new ProductsAdapter.DownloadImageTask(holder.image)
-                .execute(product.getUrl());
+     //   new ProductsAdapter.DownloadImageTask(holder.image).execute(product.getUrl());
+        Glide.with(cnx).load(R.drawable.videos).into(holder.image);
+
     }
 
     @Override

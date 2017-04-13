@@ -45,7 +45,7 @@ public class ProductsActivity extends AppCompatActivity implements IServiceInvok
         mToolbar = (Toolbar)findViewById(R.id.appBar);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mContext = this;
-        mAdapter = new ProductsAdapter(movieList);
+        mAdapter = new ProductsAdapter(movieList,this);
 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

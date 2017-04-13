@@ -52,7 +52,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.MyViewHolder
         String path=video.getImage();
         holder.title.setText(video.getTitle());
         holder.duration.setText(video.getDuration());
-        Glide.with(context).load(path).into(holder.videoView );
+        Glide.with(context).load(path).into(holder.videoView);
       /*  Uri uri= Uri.parse(path);
         holder.videoView.setVideoURI(uri);
         */
